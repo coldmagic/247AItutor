@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <title>KATEgpt Chat</title>
+</head>
+<body>
+  <div class="header">
+    🙋‍♀️ Kate Academy
+  </div>
+  <div class="container">
+    <div class="sidebar">
+      <div class="ask-button-wrapper">
+         <button onclick="askKATE()">🙋‍♀️ Ask KATE anything</button>
+      </div>
+         <button onclick="selectSubject('English')">📝 English</button>
+         <button onclick="selectSubject('Maths')">🧮 Maths</button>
+         <button onclick="selectSubject('Physical Science')">🧪 Physical Science</button>
+         <button onclick="selectSubject('Accounting')">📈 Accounting</button>
+    </div>
+    <div class="chat">
+      <div class="chat-window" id="chat-window"></div>
+      <div class="input-box">
+        <input type="text" id="input-message" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
