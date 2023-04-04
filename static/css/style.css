@@ -1,11 +1,11 @@
 body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
   margin: 0;
   padding: 0;
 }
 
 .header {
-  background-color: #4a90e2;
+  background-color: #1D8FF2;
   padding: 10px 20px;
   color: white;
   font-size: 24px;
@@ -28,9 +28,9 @@ body {
 
 .sidebar button {
   background-color: white;
-  border: 1px solid #2196f3;
+  border: 1px solid #22A2F2;
   border-radius: 10px;
-  color: #2196f3;
+  color: #22A2F2;
   cursor: pointer;
   display: block;
   margin-bottom: 5px;
@@ -47,7 +47,7 @@ body {
 }
 
 .sidebar button.selected {
-  background-color: #2196f3;
+  background-color: #22A2F2;
   color: white;
 }
 
@@ -70,10 +70,11 @@ body {
   padding: 20px;
   width: 80%;
   max-width: 800px;
+  background-color: white;
 }
 
 .message {
-  border-radius: 10px;
+  border-radius: 12px;
   clear: both;
   margin-bottom: 10px;
   max-width: 80%;
@@ -81,18 +82,29 @@ body {
   position: relative;
   font-size: 16px;
   line-height: 1.4;
+  
 }
 
 .user {
-  background-color: #b2ebf2;
-  color: #000;
+  background-color: #22A2F2;
+  color: #fff;
   float: right;
+  border-radius: 12px;
 }
 
 .ai {
-  background-color: #e0f7fa;
+  background-color: #e5e5ea;
   color: #000;
   float: left;
+  border-radius: 10px;
+}
+
+.system-message {
+  background-color: #f4f4f4;
+  color: #000;
+  float: left;
+  border-radius: 18px;
+  font-style: italic;
 }
 
 .input-box {
@@ -113,7 +125,7 @@ input {
 }
 
 button {
-  background-color: #2196f3;
+  background-color: #22A2F2;
   border: none;
   border-radius: 0 10px 10px 0;
   color: white;
