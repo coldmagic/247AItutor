@@ -14,7 +14,7 @@ def chat():
     subject = data.get('subject')
     message = data.get('message')
 
-    ai_response = ask_kate(message)
+    ai_response = ask_kate(human_input=message)
 
     return jsonify({'response': ai_response})
 
