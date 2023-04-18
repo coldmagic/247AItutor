@@ -1,9 +1,11 @@
+// Event listeners for subject buttons
 const subjectButtons = document.querySelectorAll('.sidebar button');
 const chatWindow = document.querySelector('.chat-window');
 const form = document.querySelector('form');
 const input = document.querySelector('input');
 let askKateMode = false;
 
+// Add click event listeners to each subject button
 subjectButtons.forEach((button) => {
   button.addEventListener('click', () => {
     subjectButtons.forEach((btn) => btn.classList.remove('selected'));
@@ -14,11 +16,13 @@ subjectButtons.forEach((button) => {
   });
 });
 
+// Add submit event listener to the form
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   sendMessage();
 });
 
+// Function to add a message to the chat window
 function addMessage(role, message) {
   const messageElement = document.createElement('div');
   let className = '';
@@ -37,16 +41,19 @@ function addMessage(role, message) {
   chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
+// Function to get the currently selected subject
 function getSelectedSubject() {
   const selectedButton = document.querySelector('.sidebar button.selected');
   return selectedButton ? selectedButton.textContent : '';
 }
 
+// Function to enable Ask KATE mode
 function askKATE() {
   askKateMode = true;
   addMessage('system', 'Ask KATE Anything: KATE is ready for your question.');
 }
 
+// Function to send a message to the backend and receive KATE's response
 function sendMessage() {
   const message = input.value.trim();
   if (message.length === 0) return;
@@ -66,4 +73,19 @@ function sendMessage() {
     });
 
   input.value = '';
+}
+
+// Function to load chat history from the server
+function loadChatHistory() {
+  fetch('/api/chats', { method: 'GET', headers: { 'Content-Type': 'application/json' } })
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((chat) => {
+        addMessage('user', chat.message);
+        addMessage('ai', chat.response);
+      });
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
 }

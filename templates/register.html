@@ -1,0 +1,33 @@
+<!-- register.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+  <div class="form-box">
+    <h2 class="form-title">Register</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <p class="{{ category }}">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <div id="error-message" class="form-error" style="display: none;"></div>
+    <form action="{{ url_for('register') }}" method="POST" onsubmit="return validateRegisterForm();">
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
+      </div>
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+      </div>
+      <div class="form-field">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+      </div>
+      <button class="form-submit-button" type="submit">Register</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
