@@ -11,6 +11,7 @@ class User(db.Model):
 class Chat(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    subject = db.Column(db.String(50), nullable=False)  # Add a subject column
     message = db.Column(db.Text, nullable=False)
     response = db.Column(db.Text, nullable=False)
 

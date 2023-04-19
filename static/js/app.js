@@ -89,3 +89,7 @@ function loadChatHistory() {
       console.error('Error:', error);
     });
 }
+
+function logout() {
+  window.location.href = '/logout';
+}

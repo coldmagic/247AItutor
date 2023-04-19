@@ -33,13 +33,12 @@ def index():
 def chat():
     # Receive user message and return AI response
     data = request.get_json()
-    subject = data.get('subject')
     message = data.get('message')
 
     ai_response = ask_kate(message)
 
     if 'user_id' in session:
-        add_chat(session['user_id'], subject, message, ai_response)  # Updated to include the subject
+        add_chat(session['user_id'], data.get('subject'), message, ai_response)
 
     return jsonify({'response': ai_response})
 
@@ -79,7 +78,7 @@ def register():
         name = request.form['name']
         email = request.form['email']
         password = request.form['password']
-        
+
         print(request.form)  # Print form data
 
         existing_user = get_user_by_email(email)

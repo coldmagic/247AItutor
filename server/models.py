@@ -39,8 +39,8 @@ class Chat(db.Model):
     user = db.relationship('User', backref=db.backref('chats', lazy=True))
 
 # Add a new chat to the database
-def add_chat(user_id, message, response):
-    chat = Chat(user_id=user_id, message=message, response=response)
+def add_chat(user_id, subject, message, response):  # Updated to include the subject
+    chat = Chat(user_id=user_id, subject=subject, message=message, response=response)
     db.session.add(chat)
     db.session.commit()
 
