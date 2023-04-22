@@ -275,5 +275,11 @@ button:hover {
   margin-bottom: 20px;
 }
 
+.subject-display {
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  font-weight: bold; /* Make the text bold */
+  margin-bottom: 1rem; /* Add some space between the subject text and the chat window */
+  text-align: center; /* Center the text horizontally */
+}
 
    

@@ -32,21 +32,22 @@ def get_user_by_email(email):
 class Chat(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    subject = db.Column(db.String(50), nullable=False)  # Add a subject column
+    subject = db.Column(db.String(50), nullable=False)
     message = db.Column(db.Text, nullable=False)
     response = db.Column(db.Text, nullable=False)
 
     user = db.relationship('User', backref=db.backref('chats', lazy=True))
 
 # Add a new chat to the database
-def add_chat(user_id, subject, message, response):  # Updated to include the subject
+def add_chat(user_id, subject, message, response):
     chat = Chat(user_id=user_id, subject=subject, message=message, response=response)
     db.session.add(chat)
     db.session.commit()
+    print(f"Chat saved to the database: {chat}")
 
-# Retrieve all chats for a given user
-def get_chats(user_id):
-    return Chat.query.filter_by(user_id=user_id).all()
+# Retrieve all chats for a given user and subject
+def get_chats(user_id, subject):
+    return Chat.query.filter_by(user_id=user_id, subject=subject).all()
 
 # Initialize the database
 def init_db(app):

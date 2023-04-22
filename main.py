@@ -42,11 +42,11 @@ def chat():
 
     return jsonify({'response': ai_response})
 
-@app.route('/api/chats', methods=['GET'])
+@app.route('/api/chats/<subject>', methods=['GET'])
 @login_required
-def chats():
-    # Retrieve the chat history for the current user
-    chats = get_chats(session['user_id'])
+def chats(subject):
+    # Retrieve the chat history for the current user and the selected subject
+    chats = get_chats(session['user_id'], subject)
     chat_data = [
         {'subject': chat.subject, 'message': chat.message, 'response': chat.response} for chat in chats
     ]

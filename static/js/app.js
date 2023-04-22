@@ -5,14 +5,31 @@ const form = document.querySelector('form');
 const input = document.querySelector('input');
 let askKateMode = false;
 
-// Add click event listeners to each subject button
+// Function to load chat history from the server based on the selected subject
+function loadChatHistory(subject) {
+  fetch(`/api/chats/${subject}`, { method: 'GET', headers: { 'Content-Type': 'application/json' } })
+    .then((response) => response.json())
+    .then((data) => {
+      chatWindow.innerHTML = '';
+      data.forEach((chat) => {
+        addMessage('user', chat.message);
+        addMessage('ai', chat.response);
+      });
+      console.log(data); // Print chat history in the console
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+}
+
+// Update the event listeners for subject buttons
 subjectButtons.forEach((button) => {
   button.addEventListener('click', () => {
     subjectButtons.forEach((btn) => btn.classList.remove('selected'));
     button.classList.add('selected');
     const subject = button.textContent;
-    chatWindow.innerHTML = '';
-    addMessage('system', `You are now chatting about ${subject}.`);
+    document.getElementById('subject-display').innerText = subject;
+    loadChatHistory(subject);
   });
 });
 
