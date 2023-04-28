@@ -81,11 +81,13 @@ body {
   height: calc(100vh - 250px);
   margin-bottom: 20px;
   overflow-y: auto;
-  padding: 20px;
+  padding: 5px;
   width: 80%;
   max-width: 800px;
   background-color: white;
+  max-height: 70%; /* Add this property to limit the height of the chat window */
 }
+
 
 .message {
   border-radius: 12px;
@@ -123,16 +125,16 @@ body {
 
 .input-box {
   display: flex;
-  width: 80%;
+  width: 90%;
   max-width: 800px;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 input {
   border: 1px solid #ddd;
   border-radius: 10px 0 0 10px;
   flex-grow: 0.8; /* Adjusted input width (change this value to modify the width) */
-  padding: 10px;
+  padding: 5px;
   outline: none;
   font-size: 16px;
   line-height: 1.4;
@@ -276,10 +278,10 @@ button:hover {
 }
 
 .subject-display {
-  font-size: 1.5rem; /* Adjust the font size as needed */
-  font-weight: bold; /* Make the text bold */
-  margin-bottom: 1rem; /* Add some space between the subject text and the chat window */
-  text-align: center; /* Center the text horizontally */
+  position: sticky;
+  top: 60px; /* Adjust this value based on the height of the header */
+  z-index: 100;
 }
 
-   
+
+

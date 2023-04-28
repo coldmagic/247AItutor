@@ -5,12 +5,19 @@ const form = document.querySelector('form');
 const input = document.querySelector('input');
 let askKateMode = false;
 
+// Function to clear messages
+function clearMessages() {
+  while (chatWindow.firstChild) {
+    chatWindow.removeChild(chatWindow.firstChild);
+  }
+}
+
 // Function to load chat history from the server based on the selected subject
 function loadChatHistory(subject) {
   fetch(`/api/chats/${subject}`, { method: 'GET', headers: { 'Content-Type': 'application/json' } })
     .then((response) => response.json())
     .then((data) => {
-      chatWindow.innerHTML = '';
+      clearMessages();
       data.forEach((chat) => {
         addMessage('user', chat.message);
         addMessage('ai', chat.response);
@@ -90,21 +97,6 @@ function sendMessage() {
     });
 
   input.value = '';
-}
-
-// Function to load chat history from the server
-function loadChatHistory() {
-  fetch('/api/chats', { method: 'GET', headers: { 'Content-Type': 'application/json' } })
-    .then((response) => response.json())
-    .then((data) => {
-      data.forEach((chat) => {
-        addMessage('user', chat.message);
-        addMessage('ai', chat.response);
-      });
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
 }
 
 function logout() {

@@ -4,7 +4,7 @@
 {% block content %}
 <div class="form-container">
   <div class="form-box">
-    <h2 class="form-title">🙋‍♀️ Kate Academy Login</h2>
+    <h2 class="form-title" style="text-align: center;">🙋‍♀️ Kate Academy Login</h2>
     <div id="error-message" class="form-error" style="display: none;"></div>
     <form action="{{ url_for('login') }}" method="POST" onsubmit="return validateLoginForm();">
       <div class="form-field">
@@ -17,7 +17,7 @@
       </div>
       <button class="form-submit-button" type="submit">Login</button>
     </form>
-    <div class="register-link">
+    <div class="register-link" style="text-align: center;">
       <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
     </div>
   </div>
