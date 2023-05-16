@@ -1,0 +1,61 @@
+<!-- checkout.html -->
+{% extends "base.html" %}
+{% block content %}
+<h1>Checkout</h1>
+<form action="https://sandbox.payfast.co.za/eng/process" method="post">
+  <!-- Merchant Details -->
+  <input type="hidden" name="merchant_id" value="10980749">
+  <input type="hidden" name="merchant_key" value="aa3a4xa7jdrda">
+  <input type="hidden" name="return_url" value="{{ url_for('index') }}">
+  <input type="hidden" name="cancel_url" value="{{ url_for('index') }}">
+  <input type="hidden" name="notify_url" value="{{ url_for('notify') }}">
+
+  <!-- Customer Details -->
+  <div class="form-group">
+    <label for="name_first">Name</label>
+    <input type="text" id="name_first" name="name_first" value="{{ user.first_name }}" required>
+  </div>
+  <div class="form-group">
+    <label for="name_last">Surname</label>
+    <input type="text" id="name_last" name="name_last" value="{{ user.last_name }}" required>
+  </div>
+  <div class="form-group">
+    <label for="email_address">Email address</label>
+    <input type="email" id="email_address" name="email_address" value="{{ user.email }}" required>
+  </div>
+  <div class="form-group">
+    <label for="cell_number">Cell number</label>
+    <input type="tel" id="cell_number" name="cell_number" value="{{ user.cell_number }}" required>
+  </div>
+  <div class="form-group">
+    <label for="high_school">High School:</label>
+    <input type="text" id="high_school" name="high_school" required><br><br>
+  </div>
+
+  <!-- Transaction Details -->
+  <input type="hidden" name="m_payment_id" value="{{ payment_id }}">
+  <input type="hidden" name="amount" value="997.00">
+  <input type="hidden" name="item_name" value="Kate Academy AI - Monthly Subscription">
+  <input type="hidden" name="item_description" value="Kate Academy AI - Monthly Subscription">
+  <input type="hidden" name="custom_int1" value="{{ custom_int1 }}">
+  <input type="hidden" name="custom_str1" value="{{ custom_str1 }}">
+
+  <!-- Transaction Options -->
+  <input type="hidden" name="email_confirmation" value="1">
+  <input type="hidden" name="confirmation_address" value="{{ user.email }}">
+
+  <!-- Payment Methods -->
+  <input type="hidden"name="payment_method"value= "cc">
+
+  <!-- Order Summary -->
+  <h2>Order Summary</h2>
+  <ul>
+    <li>1 x 🙋‍♀️ Kate Academy AI - Monthly Subscription - R997.00</li>
+    <!-- You can add more items here if needed -->
+  </ul>
+  <p>*Cancel at anytime. 14-day money back guarantee.</p>
+
+  <!-- Submit Button -->
+  <input type= "submit"value= "Pay Now"class= "btn btn-danger">
+</form>
+{% endblock %}

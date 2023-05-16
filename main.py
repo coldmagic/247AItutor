@@ -1,4 +1,3 @@
-# main.py
 from flask import Flask, render_template, request, jsonify, redirect, url_for, session, flash
 from server.chat_gpt import ask_kate
 from server.models import init_db, create_user, get_user_by_email, add_chat, get_chats
@@ -23,6 +22,10 @@ def login_required(f):
     return decorated_function
 
 @app.route('/')
+def landing():
+    return render_template('landing.html')
+
+@app.route('/home')
 @login_required
 def index():
     # Render the main chat page
@@ -94,6 +97,12 @@ def register():
 
     return render_template('register.html')
 
+@app.route('/checkout')
+def checkout():
+    # ... gather or create the necessary data ...
+    return render_template('checkout.html', user=user, payment_id=payment_id, item_description=item_description, custom_int1=custom_int1, custom_str1=custom_str1)
+
+
 @app.route('/logout')
 def logout():
     # Log out the user by removing the user_id from the session
@@ -101,4 +110,4 @@ def logout():
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=81)
+     app.run(host='0.0.0.0', port=81)
