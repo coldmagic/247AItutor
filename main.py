@@ -97,10 +97,36 @@ def register():
 
     return render_template('register.html')
 
-@app.route('/checkout')
+@app.route('/checkout', methods=['GET', 'POST'])
 def checkout():
-    # ... gather or create the necessary data ...
-    return render_template('checkout.html', user=user, payment_id=payment_id, item_description=item_description, custom_int1=custom_int1, custom_str1=custom_str1)
+    # Assuming `user` and other necessary variables are defined elsewhere in your code
+    user = get_current_user()  # replace with your actual function for getting the current user
+
+    # Prepare the data for PayFast
+    pf_data = {
+        "merchant_id": "10980749",
+        "merchant_key": "aa3a4xa7jdrda",
+        "return_url": url_for('index', _external=True),
+        "notify_url": url_for('notify', _external=True),
+        "cancel_url": url_for('cancel', _external=True),
+        "m_payment_id": "UniqueId",  # replace with your actual unique ID
+        "amount": "997.00",
+        "item_name": "Kate Academy AI - Monthly Subscription",
+        "item_description": "Kate Academy AI - Monthly Subscription",
+        "email_confirmation": "1",
+        "confirmation_address": user.email,
+        "payment_method": "cc",
+        "name_first": user.first_name,
+        "name_last": user.last_name,
+        "email_address": user.email
+        # Add other necessary variables here
+    }
+
+    # Generate the signature
+    passphrase = 'jt7NOE43FZPn'  # replace with your actual passphrase
+    signature = generate_signature(pf_data, passphrase)
+
+    return render_template('checkout.html', user=user, signature=signature, **pf_data)
 
 
 @app.route('/logout')
