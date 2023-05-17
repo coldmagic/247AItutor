@@ -71,7 +71,7 @@ def login():
             session['user_id'] = user.id
             return redirect(url_for('index'))
         else:
-            return render_template('login.html', error='Invalid email or password')
+            return render_template('login.html', error='Invalid email or password') #added comment
 
     return render_template('login.html')
 

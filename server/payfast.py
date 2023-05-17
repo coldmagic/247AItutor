@@ -13,3 +13,4 @@ def generate_signature(data: dict, passphrase: str = '') -> str:
         data_str += f"&passphrase={passphrase}"
 
     return hashlib.md5(data_str.encode()).hexdigest()
+  
