@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for, session, flash
 from server.chat_gpt import ask_kate
 from server.models import init_db, create_user, get_user_by_email, add_chat, get_chats
+from server.payfast import generate_signature, pfValidSignature, pfValidIP, pfValidPaymentData, pfValidServerConfirmation
 import os
 from functools import wraps
 
@@ -126,7 +127,38 @@ def checkout():
     passphrase = 'jt7NOE43FZPn'  # replace with your actual passphrase
     signature = generate_signature(pf_data, passphrase)
 
-    return render_template('checkout.html', user=user, signature=signature, **pf_data)
+    return render_template('checkout.html', user=user, signature=signature)
+
+@app.route('/notify', methods=['POST'])
+def notify():
+    # Get the data sent by PayFast
+    data = request.form.to_dict()
+
+    # Verify the signature
+    passphrase = 'your_passphrase'  # replace with your actual passphrase
+    if not pfValidSignature(data, passphrase):
+        return 'Invalid signature', 400
+
+    # Check that the ITN has come from a valid PayFast domain
+    if not pfValidIP():
+        return 'Invalid host', 400
+
+    # Compare the payment data
+    expected_amount = 997.00  # replace with your actual expected amount
+    if not pfValidPaymentData(expected_amount, data):
+        return 'Invalid payment data', 400
+
+    # Confirm the details with a server request
+    if not pfValidServerConfirmation(data, passphrase):
+        return 'Failed to confirm details with server', 400
+
+    # The signatures match, so the data is valid
+    # Here you can update your database, send confirmation emails, etc.
+    pass  # replace with your actual code
+
+    # Return a 200 OK response
+    return '', 200
+
 
 
 @app.route('/logout')
