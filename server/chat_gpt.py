@@ -1,4 +1,9 @@
 # chat_gpt.py
+#This is a module that provides the ChatGPT service for the app. 
+#It imports transformers and torch libraries and creates a ChatGPT class that loads a pre-trained GPT-2 model and tokenizer. 
+#It also defines a chat method that takes a user input and generates a response using the model.
+
+
 from langchain import OpenAI, ConversationChain, LLMChain, PromptTemplate
 from langchain.memory import ConversationBufferWindowMemory
 

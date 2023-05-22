@@ -1,3 +1,10 @@
+#Server/models.py: 
+#This is a module that defines the User and Message models for your app using SQLAlchemy. 
+#The User model has attributes such as id, username, email, password_hash, subscription and messages. 
+#The Message model has attributes such as id, sender_id, receiver_id, content and timestamp. 
+#The models also have methods for creating, updating and deleting instances in the database.
+
+
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 

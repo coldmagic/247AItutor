@@ -1,3 +1,7 @@
+#Create_db.py: 
+#creates the database file users.db using SQLAlchemy. 
+#It imports the User and Message models from models.py and creates a table for each model in the database
+
 from main import app, db
 
 # Define the User model

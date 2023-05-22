@@ -1,3 +1,10 @@
+#Server/payfast.py:
+#This is a module that provides the PayFast service for the app. 
+#It imports requests library and creates a PayFast class that handles the payment processing using the PayFast API. 
+#It also defines methods for creating a payment request, verifying a payment notification and canceling a payment subscription.
+
+
+
 import hashlib
 import urllib.parse
 import requests
