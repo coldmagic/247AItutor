@@ -1,10 +1,13 @@
-8884<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kate Academy AI</title>
+  <title>247 AI Tutor</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Encode+Sans' rel='stylesheet'> 
+   <link href="https://fonts.googleapis.com/css?family=Farro:400,500,600,700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&display=swap" rel="stylesheet">
   <style>
     .sticky {
       position: fixed;
@@ -12,75 +15,91 @@
       width: 100%;
       z-index: 1000;
     }
+    .font-farro {
+      font-family: 'Farro', sans-serif;
+    }
+    .font-encode {
+      font-family: 'Encode Sans', sans-serif;
+    }
+    .font-merriweather {
+      font-family: 'Merriweather', serif;
+    }
   </style>
 </head>
-<body class="font-sans bg-gray-100">
+<body class="font-encode sans-serif bg-gray-100">
  <!-- Header Section -->
-  <header class="bg-white shadow sticky">
-    <nav class="container mx-auto px-6 py-3">
-      <div class="flex items-center justify-between">
-        <div>
-          <a href="#" class="text-2xl font-semibold text-gray-800">🙋‍♀️ Kate Academy AI</a>
-          <span class="text-sm text-gray-700">- powered by ChatGPT</span>
-        </div>
-        <div class="hidden md:flex items-center space-x-3">
-          <a href="#features" class="text-gray-700 hover:text-gray-900">Features</a>
-          <a href="#testimonials" class="text-gray-700 hover:text-gray-900">Testimonials</a>
-          <a href="#pricing" class="text-gray-700 hover:text-gray-900">Pricing</a>
-          <a href="#demo" class="text-gray-700 hover:text-gray-900">Demo</a>
-          <a href="/login" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Login</a>
+<header class="bg-white shadow sticky">
+  <nav class="container mx-auto px-6 py-3">
+    <div class="flex items-center justify-between">
+      <!-- Left Section -->
+      <div class="flex items-center">
+        <a href="#" class="text-2xl font-encode text-gray-800 mr-10">👩‍🏫 247 AI Tutor</a>
+        <div class="flex-1 flex items-center space-x-3">
+        
         </div>
       </div>
-    </nav>
-  </header>
+      <!-- Right Section -->
+      <div class="hidden md:flex items-center space-x-3">
+          <a href="#features" class="text-gray-700 hover:text-gray-900 font-bold font-encode">Features</a>
+          <a href="#testimonials" class="text-gray-700 hover:text-gray-900 font-bold font-encode">Testimonials</a>
+          <a href="#pricing" class="text-gray-700 hover:text-gray-900 pr-5 font-bold font-encode">Pricing</a>
+          <a href="/login" class="bg-gray-500 text-white px-4 py-2 rounded-full hover:bg-gray-700">Login</a>
+          <a href="/register" class="bg-green-800 text-white px-2 py-2 rounded-full hover:bg-green-700">Sign Me Up</a>
+      </div>
+    </div>
+  </nav>
+</header>
       
 
-<!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 py-10" id="hero">
-  <div class="container mx-auto px-6 text-center">
-    <div>
-      <h1 class="text-4xl md:text-5xl font-bold text-white">Kate Academy AI 🙋‍♀️</h1>
-      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Personalized AI Teaching Assistant</h2>
+  <!-- Hero Section -->
+  <section class="bg-green-900 py-16 md:py-20" id="hero">
+    <div class="hidden md:block h-12"></div>
+    <div class="container mx-auto px-6 flex flex-col md:flex-row text-center items-center">
+    <div class="md:w-1/2">
+      <h1 class="text-5xl md:text-5xl font-bold text-white mt-4 mb-4 font-merriweather">Securing Your Child's Future <br>Just Got Easier.</h1>
+      <h3 class="text-3xl md:text-3xl font-bold text-white mt-8 mb-4 font-merriweather">Introducing our 24/7 AI Tutor.</h3>
+      <p class="text-xl md:text-xl text-white mt-8 mb-8 font-encode">It’s like having a private teacher just for your child, <br>anytime they need.</p>
+      <p class="text-lg md:text-xl text-white mb-4 font-encode"><em>"You'll be 'stunned by how it helps."</em> – Bill Gates</p>
+      <div style="margin: 50px 0;">
+         <a href="#features" class="bg-white text-green-900 px-6 py-3 rounded hover:bg-gray-500 hover:text-white">Tell me more</a>
+      </div>
     </div>
-    <p class="text-xl md:text-2xl text-white mb-8">Revolutionize your child's learning experience with our AI teaching assistant.</p>
-   <div class="relative">
+    <div class="md:w-1/2 relative mt-32 md:mt-0">
       <!-- Hero image description for the AI: A happy and engaged child studying at a desk with a friendly AI robot tutor by their side, assisting them with their schoolwork. The robot should have a friendly, approachable appearance, and the child should be focused on their learning with a positive expression. The background should be clean and minimalistic, with a focus on the child and AI tutor interaction. -->
-      <img src="static/images/elite_student.jpeg" alt="Friendly robot tutor and a child listening" class="w-64 h-64 md:w-96 md:h-96 mx-auto object-cover rounded-full mb-6">
+      <img src="static/images/elite_student.png" alt="Friendly robot tutor and a child listening" class="my-6 md:my-0 w-48 h-60 md:w-96 md:h-96 mx-auto object-cover rounded-md">
     </div>
-    <p class="text-xl md:text-2xl text-white mb-4">"You'll be 'stunned by how it helps." – Bill Gates</p>
-    <a href="#features" class="bg-white text-blue-600 px-6 py-3 rounded hover:bg-blue-600 hover:text-white">Tell me more</a>
   </div>
 </section>
-
+  
 <!-- Features Section -->
 <section class="py-10 bg-gray-100" id="features">
   <div class="container mx-auto px-6">
-    <h2 class="text-center text-3xl md:text-4xl font-bold text-gray-800 mb-10">Why choose Kate Academy AI ?</h2>
+    <h2 class="text-center text-3xl md:text-4xl font-bold text-black-800 mb-10">Why choose 24/7 AI Tutor ?</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <!-- Feature 1 -->
       <div class="bg-white shadow-md rounded p-6">
-        <h5 class="text-xl font-bold mb-3">Personalized Learning 📚</h5>
-        <p>Kate Academy AI adapts to your child's unique learning style, ensuring a tailored educational experience that maximizes their potential.</p>
-      </div>
-      <!-- Feature 2 -->
-      <div class="bg-white shadow-md rounded p-6">
-        <h5 class="text-xl font-bold mb-3">Competitive Edge 💪</h5>
-        <p>Our advanced AI helps students gain an advantage in their studies, improving exam scores and overall academic performance, setting them up for future success.</p>
-      </div>
-      <!-- Feature 3 -->
-      <div class="bg-white shadow-md rounded p-6">
-        <h5 class="text-xl font-bold mb-3">Anytime, Anywhere Access 🌍</h5>
+        <h5 class="text-xl font-bold mb-3">🌍 Anytime, Anywhere Access </h5>
         <p>Your child can access their AI teacher anytime, anywhere, fitting learning around their busy schedule and making the most of their time.</p>
       </div>
-      <!-- Feature 4 -->
+      <!-- Feature 2 --> 
+      <div class="bg-white shadow-md rounded p-6">
+        <h5 class="text-xl font-bold mb-3">📚 Personalized Learning</h5>
+        <p>Kate Academy AI adapts to your child's unique learning style, ensuring a tailored educational experience that maximizes their potential.</p>
+      </div>
+     <!-- Feature 3 -->
+      <div class="bg-white shadow-md rounded p-6">
+        <h5 class="text-xl font-bold mb-3">🤖 AI Trained on CAPS, IEB, & Cambridge Material </h5>
+        <p>Our AI generates test questions using the latest CAPS, IEB, and Cambridge materials. It provides comprehensive practice that thoroughly prepares your child for exams.</p>
+      </div>
+     <!-- Feature 4 -->
       <div class="bg-white shadow-md rounded p-6">
         <h5 class="text-xl font-bold mb-3">Cost-effective Tutoring 🤝</h5>
         <p>Experience the benefits of a virtual personal tutor at a fraction of the cost of a human tutor, making high-quality education more accessible for your child.</p>
       </div>
       <!-- Feature 5 -->
       <div class="bg-white shadow-md rounded p-6">
-        <h5 class="text-xl font-bold mb-3">AI-Generated Test Questions 🤖</h5>
-        <p>Test questions generated by AI based on thousands of test papers for comprehensive practice, helping your child to be better prepared for exams.</p>
+        <h5 class="text-xl font-bold mb-3">Competitive Edge 💪</h5>
+        <p>Our advanced AI helps students gain an advantage in their studies, improving exam scores and overall academic performance, setting them up for future success.</p>
       </div>
       <!-- Feature 6 -->
       <div class="bg-white shadow-md rounded p-6">
