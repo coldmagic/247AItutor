@@ -147,8 +147,8 @@ def checkout():
         "cancel_url": url_for('cancel', _external=True),
         "m_payment_id": "UniqueId",  # replace with your actual unique ID
         "amount": "997.00",
-        "item_name": "Kate Academy AI - Monthly Subscription",
-        "item_description": "Kate Academy AI - Monthly Subscription",
+        "item_name": "247 AI Tutor - Monthly Subscription",
+        "item_description": "247 AI Tutor - Monthly Subscription",
         "email_confirmation": "1",
         "confirmation_address": user.email,
         "payment_method": "cc",
@@ -194,7 +194,9 @@ def notify():
     # Return a 200 OK response
     return '', 200
 
-
+@app.route('/cancel')
+def cancel():
+    return render_template('cancel.html')
 
 @app.route('/logout')
 def logout():
